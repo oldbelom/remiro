@@ -1,6 +1,7 @@
+import { Link, href } from "react-router-dom";
+
 import { rqClient } from "@/shared/api/instance";
 import { ROUTES } from "@/shared/model/routes";
-import { Link, href } from "react-router-dom";
 
 function BoardsListPage() {
     const { data: boardsList } = rqClient.useQuery("get", "/boards");
