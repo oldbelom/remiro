@@ -1,21 +1,4 @@
-import { HttpResponse } from "msw";
+import { authHandlers } from "./auth";
+import { boardsHandlers } from "./boards";
 
-import { ApiSchemas } from "../../schema";
-import { http } from "../http";
-
-const boards: ApiSchemas["Board"][] = [
-    {
-        id: "board-1",
-        name: "Marketing Campaign",
-    },
-    {
-        id: "board-2",
-        name: "Product Roadmap",
-    },
-];
-
-export const handlers = [
-    http.get("/boards", () => {
-        return HttpResponse.json(boards);
-    }),
-];
+export const handlers = [...boardsHandlers, ...authHandlers];
